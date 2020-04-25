@@ -1,14 +1,14 @@
 
 
 import UIKit
-
-var articles: Array<ArticleLitModel> = [ArticleLitModel]()
+var onHome = true
+var articles = [ArticleLitModel]()
 var vSpinner : UIView?
 class HomeController: UIViewController {
     //MARK: - Properties
     var loadingData = true
     var tableView = UITableView()
-    let cellSpacingHeight: CGFloat = 80
+    let cellSpacingHeight: CGFloat = 60
     let spinner = UIActivityIndicatorView(style: .gray)
     var allNews = NewsManager()
     let menuBar: MenuBar = {
@@ -23,11 +23,12 @@ class HomeController: UIViewController {
         configureUI()
     }
 
-    
     override func viewWillAppear(_ animated: Bool) {
          self.showSpinner(onView: view)
-         allNews.fetchArticles()
+            allNews.fetchArticles()
+            onHome = true
      }
+    
      
     //MARK: - Helper functions
     func configureUI() {
@@ -60,9 +61,9 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
     }
     
     // Set the spacing between sections
-        func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return cellSpacingHeight
-        }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return cellSpacingHeight
+    }
     
     // Make the background color show through
        func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -77,17 +78,21 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         let article = articles[indexPath.section]
         cell.set(article: article)
         cell.selectionStyle = .none
-        cell.configureBookmark()
+        print("\(indexPath.section) + \(Int(count!)!)")
+        print("shine: \(articles.count)")
         if indexPath.section == articles.count - 1 && !loadingData {
+            print("in here")
             loadingData = true
-            spinner.frame = CGRect(x: 0.0, y: 0.0, width: tableView.bounds.width, height: 70)
+            let spinner = UIActivityIndicatorView(style: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(40), width: tableView.bounds.width, height: CGFloat(104))
             spinner.startAnimating()
             tableView.tableFooterView = spinner
             self.tableView.reloadData()
-            count = String(Int(count!)! + 10)
             offset = String(Int(offset!)! + 10)
             allNews.fetchArticles(update: true)
         }
+        cell.configureBookmark()
         return cell
     }
 }
@@ -98,12 +103,11 @@ extension HomeController: NewsManagerDelegate  {
     func didUpdateArticles() {
         DispatchQueue.main.async {
             //set delegates
-            self.loadingData = false
             self.tableView.delegate = self
             self.tableView.dataSource = self
             self.view.addSubview(self.tableView)
+            self.loadingData = false
             self.configureTableView(tableView: self.tableView)
-            self.removeSpinner()
             self.spinner.hidesWhenStopped = true
             self.spinner.stopAnimating()
             self.setUpMenuBar()

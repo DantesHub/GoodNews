@@ -7,6 +7,7 @@ class UserProfileController: UIViewController {
     //MARK: - INIT
     override func viewDidLoad() {
         super.viewDidLoad()
+        onHome = false
         configureNavBar()
         configureUI()
     }
