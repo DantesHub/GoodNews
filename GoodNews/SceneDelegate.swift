@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let winScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: winScene)
         let mainTBController = MainTabBarController()
+        mainTBController.selectedIndex = 1
         window?.rootViewController = mainTBController
         window?.makeKeyAndVisible()
        

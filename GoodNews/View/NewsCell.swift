@@ -2,7 +2,6 @@
 import UIKit
 import RealmSwift
 import Lottie
-
 class NewsCell: UITableViewCell {
     //MARK: - properties
     var results: Results<SavedArticle>!
@@ -52,7 +51,7 @@ class NewsCell: UITableViewCell {
         containerView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = false
         containerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
-        containerView.heightAnchor.constraint(equalToConstant: 450).isActive                   = true
+        containerView.heightAnchor.constraint(equalToConstant: 430).isActive                   = true
     }
     
     
@@ -67,7 +66,7 @@ class NewsCell: UITableViewCell {
     }
     
     func configureTitleLabel() {
-        articleTitleLabel.numberOfLines             = 5
+        articleTitleLabel.numberOfLines             = 4
         articleTitleLabel.adjustsFontSizeToFitWidth = false
         articleTitleLabel.lineBreakMode = .byTruncatingTail
         articleTitleLabel.font = UIFont(name:
@@ -75,7 +74,7 @@ class NewsCell: UITableViewCell {
         articleTitleLabel.translatesAutoresizingMaskIntoConstraints                                                 = false
         articleTitleLabel.centerXAnchor.constraint(equalTo: centerXAnchor, constant: 10).isActive                   = true
         articleTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12).isActive  = true
-        articleTitleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: -10).isActive      = true
+        articleTitleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: -20).isActive      = true
         articleTitleLabel.heightAnchor.constraint(equalToConstant: 150).isActive                                    = true
     }
     func configureBookmark() {
@@ -84,17 +83,31 @@ class NewsCell: UITableViewCell {
             let url = result.value(forKey: "url") as! String?
             let bookmarked = result.value(forKey: "isBookmarked") as! Bool
             if url == articleData?.url && bookmarked == true {
-                print("past second defense")
+                print("past second defense") 
                 bookmark.image = UIImage(named: "bookmarked")
             } 
         }
+        
         bookmark.isUserInteractionEnabled = true
         let tap = UITapGestureRecognizer(target: self, action: #selector(tappedBookmark))
         bookmark.addGestureRecognizer(tap)
         bookmark.translatesAutoresizingMaskIntoConstraints = false
         bookmark.clipsToBounds = true
         bookmark.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -15).isActive = true
-        bookmark.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5).isActive     = true
+        bookmark.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15).isActive      = true
+    }
+    
+    //MARK: - handlers
+    @objc func tappedBookmark() {
+        print("i pull up")
+        if bookmark.image == UIImage(named: "bookmark") {
+            bookmark.image = UIImage(named: "bookmarked")
+            bookmark.startAnimating()
+            saveToRealm()
+        } else {
+            bookmark.image = UIImage(named: "bookmark")
+            deleteFromRealm()
+        }
     }
     
     func configureDate() {
@@ -153,18 +166,7 @@ class NewsCell: UITableViewCell {
         
         articleTitleLabel.text = "\(article.title ?? "") \n-\(article.source ?? "")"
     }
-    //MARK: - handlers
-    @objc func tappedBookmark() {
-        print("i pull up")
-        if bookmark.image == UIImage(named: "bookmark") {
-            bookmark.image = UIImage(named: "bookmarked")
-            bookmark.startAnimating()
-            saveToRealm()
-        } else {
-            bookmark.image = UIImage(named: "bookmark")
-            deleteFromRealm()
-        }
-    }
+
     
     func saveToRealm() {
         let savedArticle = SavedArticle()

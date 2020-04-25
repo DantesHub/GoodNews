@@ -13,6 +13,7 @@ class BookmarkController: UIViewController {
     //MARK: - INIT
     override func viewDidLoad() {
         super.viewDidLoad()
+        onHome = false
         configureUI()
         configureNavBar()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)

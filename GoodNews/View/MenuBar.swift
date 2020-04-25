@@ -78,14 +78,23 @@ class MenuCell: UICollectionViewCell {
             switch label.text {
             case "Top":
                 print("Top")
+                query = "a"
+                
             case "Sports":
                 print("Sports")
+                query = "sports"
             case "Media":
                 print("Media")
+                query = ""
             case "Tech":
                 print("Tech")
+                query = "tech"
             case "World":
                 print("World")
+                query = "world"
+            case "Gov":
+                print("Gov")
+                query = "gov"
             default:
                 print("Default")
             }
