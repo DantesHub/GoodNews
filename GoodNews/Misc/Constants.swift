@@ -1,10 +1,4 @@
-//
-//  Constants.swift
-//  GoodNews
-//
-//  Created by Dante Kim on 4/16/20.
-//  Copyright © 2020 Dante Kim. All rights reserved.
-//
+
 
 import Foundation
 import UIKit

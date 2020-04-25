@@ -1,10 +1,4 @@
-//
-//  NewsLitModel.swift
-//  GoodNews
-//
-//  Created by Dante Kim on 4/25/20.
-//  Copyright © 2020 Dante Kim. All rights reserved.
-//
+
 
 import Foundation
 
