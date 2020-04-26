@@ -3,6 +3,7 @@
 import UIKit
 var onHome = true
 var articles = [ArticleLitModel]()
+var clicked = false
 var vSpinner : UIView?
 class HomeController: UIViewController {
     //MARK: - Properties
@@ -15,16 +16,25 @@ class HomeController: UIViewController {
         let mb = MenuBar()
         return mb
     }()
-    
+
     //MARK: - init
     override func viewDidLoad() {
         super.viewDidLoad()
         allNews.delegate = self
         configureUI()
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
+    
+    @objc func loadList(notification: NSNotification){
+         //load data here
+         self.showSpinner(onView: view)
+         print("got over here")
+         onHome = true
+         allNews.fetchArticles()
+     }
 
     override func viewWillAppear(_ animated: Bool) {
-         self.showSpinner(onView: view)
+            self.showSpinner(onView: view)
             allNews.fetchArticles()
             onHome = true
      }
@@ -78,20 +88,18 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         let article = articles[indexPath.section]
         cell.set(article: article)
         cell.selectionStyle = .none
-        print("\(indexPath.section) + \(Int(count!)!)")
-        print("shine: \(articles.count)")
-        if indexPath.section == articles.count - 1 && !loadingData {
-            print("in here")
-            loadingData = true
-            let spinner = UIActivityIndicatorView(style: .gray)
-            spinner.startAnimating()
-            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(40), width: tableView.bounds.width, height: CGFloat(104))
-            spinner.startAnimating()
-            tableView.tableFooterView = spinner
-            self.tableView.reloadData()
-            offset = String(Int(offset!)! + 10)
-            allNews.fetchArticles(update: true)
-        }
+    
+//        if indexPath.section == articles.count - 1 && !loadingData {
+//            loadingData = true
+//            let spinner = UIActivityIndicatorView(style: .gray)
+//            spinner.startAnimating()
+//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(40), width: tableView.bounds.width, height: CGFloat(104))
+//            spinner.startAnimating()
+//            tableView.tableFooterView = spinner
+//            self.tableView.reloadData()
+//            offset = String(Int(offset!)! + 10)
+//            allNews.fetchArticles(update: true)
+//        }
         cell.configureBookmark()
         return cell
     }
@@ -111,6 +119,8 @@ extension HomeController: NewsManagerDelegate  {
             self.spinner.hidesWhenStopped = true
             self.spinner.stopAnimating()
             self.setUpMenuBar()
+            self.tableView.reloadData()
+        
         }
     }
 }

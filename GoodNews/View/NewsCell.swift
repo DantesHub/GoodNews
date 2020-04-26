@@ -83,7 +83,6 @@ class NewsCell: UITableViewCell {
             let url = result.value(forKey: "url") as! String?
             let bookmarked = result.value(forKey: "isBookmarked") as! Bool
             if url == articleData?.url && bookmarked == true {
-                print("past second defense") 
                 bookmark.image = UIImage(named: "bookmarked")
             } 
         }

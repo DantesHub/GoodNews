@@ -59,11 +59,50 @@ class MenuCell: UICollectionViewCell {
         let label = UILabel()
         label.textColor = .black
         label.font = UIFont(name: "GillSans-Bold", size: 20)
+        label.sizeToFit()
         return label
     }()
+    
+    @objc func tappedLabel() {
+        print("tapped")
+        switch label.text {
+        case "Top":
+            print("Top")
+            query = "a"
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        case "Sports":
+            print("Sports")
+            clicked = true
+            query = "nba+mlb+nhl+nfl+football+baseball+basketball+sports"
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        case "Media":
+            print("Media")
+            query = "media+celebrities+movies"
+            clicked = true
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        case "Tech":
+            print("Tech")
+            clicked = true
+            query = "technology+iphone+samsung+tesla+tech+computer+laptop"
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        case "World":
+            print("World")
+            clicked = true
+            query = "world+government+UK+japan+korea+china+africa+russia+canada+mexico+australia"
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        case "U.S":
+            print("Gov")
+            clicked = true
+            query = "https://newslit-news-search.p.rapidapi.com/news?q=united%22states+america+government"
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+        default:
+            print("Default")
+        }
+            
+    }
+    
 //    override var isHighlighted: Bool {
 //        didSet {
-//
 //            label.textColor = isHighlighted ?  lightBlue : .black
 ////            let textRange = NSMakeRange(0, label.text!.count)
 ////            let attributedText = NSMutableAttributedString(string: label.text!)
@@ -72,34 +111,12 @@ class MenuCell: UICollectionViewCell {
 ////            label.attributedText = attributedText
 //        }
 //    }
-    override var isSelected: Bool {
-        didSet {
-            label.textColor = isSelected ?  lightBlue : .black
-            switch label.text {
-            case "Top":
-                print("Top")
-                query = "a"
-                
-            case "Sports":
-                print("Sports")
-                query = "sports"
-            case "Media":
-                print("Media")
-                query = ""
-            case "Tech":
-                print("Tech")
-                query = "tech"
-            case "World":
-                print("World")
-                query = "world"
-            case "Gov":
-                print("Gov")
-                query = "gov"
-            default:
-                print("Default")
-            }
-        }
-    }
+//    override var isSelected: Bool {
+//        didSet {
+//            label.textColor = isSelected ?  lightBlue : .black
+////            self.isUserInteractionEnabled = isSelected ? false : true
+//        }
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -116,7 +133,7 @@ class MenuCell: UICollectionViewCell {
         label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor).isActive = true
         label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
         label.isUserInteractionEnabled = true
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedLabel))
-//        label.addGestureRecognizer(tap)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedLabel))
+        label.addGestureRecognizer(tap)
     }
 }

@@ -6,7 +6,7 @@ var articleCount = 10
 protocol NewsManagerDelegate {
     func didUpdateArticles()
 }
-var query: String? = "e"
+ var query: String? = "e"
    var count: String? = "10"
    var offset: String? = "0"
 struct NewsManager {
@@ -61,12 +61,10 @@ struct NewsManager {
          let decoder = JSONDecoder()
         do {
             var articlesInside: [ArticleLitModel]
-            print(update)
-            if update == true || onHome == true {
-                print("inside here")
+            if update == true || (onHome == true && clicked == false) {
                 articlesInside = articles
             } else {
-                print("over here")
+                clicked = false
                 articlesInside =  [ArticleLitModel]()
             }
                 if onHome {
@@ -83,64 +81,13 @@ struct NewsManager {
                 }
             }
             articles = articlesInside
-            print(articles.count)
             return articlesInside
         } catch {
             print(error)
             return nil
         }
      }
-//    func parseJSON(_ articleData: Data) -> Array<ArticleModel>? {
-//        let decoder = JSONDecoder()
-//               do {
-//                var articlesInside = [ArticleModel]()
-//                for i in 0...19 {
-//
-//
-//                    let decodedData = try decoder.decode(ArticlesData.self, from: articleData)
-//                    let urlImage = decodedData.articles[safe: i]?.urlToImage
-//                    let title = decodedData.articles[safe: i]?.title
-//                    let description = decodedData.articles[i].description
-//                    let url = decodedData.articles[i].url
-//                    let date = decodedData.articles[i].publishedAt
-//                    let article = ArticleModel(title: title, description: description, urlImage: urlImage, url: url, publishedAt: date)
-//                    articlesInside.append(article)
-//
-//                   }
-////                   articles = articlesInside
-//                   return articlesInside
-//               } catch {
-//                   print(error)
-//                   return nil
-//               }
-//    }
-//
-//    func performRequest(with urlString: String, update: Bool = false) {
-//        //create a URL
-//            if let url = URL(string: urlString) {
-//                //Create a URL session
-//                let session = URLSession(configuration: .default)
-//                //Give the session a taskd
-//                let task = session.dataTask(with: url) { (data, response, error) in
-//                    if error != nil {
-//                        print(error!)
-////                        self.delegate?.didFailWithError(error: error!)
-//                        return
-//                    }
-//                    if let safeData = data {
-//                        if update == false {
-//                            if self.parseJSON(safeData) != nil {
-//                                self.delegate?.didUpdateArticles()
-//                            }
-//                        }
-//                    }
-//                }
-//                //Start the Task
-//                task.resume()
-//            }
-//    }
     
-
     func didFailWithError(error: Error) {
         print(error)
     }

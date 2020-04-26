@@ -8,7 +8,7 @@ class BookmarkController: UIViewController {
     var tableView = UITableView()
     var results: Results<SavedArticle>!
     var articlez: Array<ArticleLitModel> = [ArticleLitModel]()
-    let cellSpacingHeight: CGFloat = 30
+    let cellSpacingHeight: CGFloat = 60
     var newsCell = NewsCell()
     //MARK: - INIT
     override func viewDidLoad() {
@@ -52,7 +52,6 @@ class BookmarkController: UIViewController {
             article.urlImage = result.value(forKey: "urlImage") as! String?
             article.publishedAt = result.value(forKey: "publishedAt") as! String?
             if !articlez.contains(article) && bookmarked == true  {
-                print("No problem")
                 articlez.append(article)
             }
         }

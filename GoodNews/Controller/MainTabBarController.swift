@@ -12,7 +12,6 @@ class MainTabBarController: UITabBarController {
         self.tabBarController?.tabBar.layer.shadowOffset = CGSize(width: 0.0, height: 1.0)
         self.tabBarController?.tabBar.layer.shadowRadius = 5
         self.tabBarController?.tabBar.layer.shadowOpacity = 1
- 
         setUpTabBar()
     }
     
@@ -21,7 +20,6 @@ class MainTabBarController: UITabBarController {
         let homeController = UINavigationController(rootViewController: HomeController())
         homeController.tabBarItem.image =  UIImage(named: "newsIcon")
         homeController.tabBarItem.selectedImage = UIImage(named: "newsIconSelected")
-       
         
         let savedController = UINavigationController(rootViewController: BookmarkController())
         
