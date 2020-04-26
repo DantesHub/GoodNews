@@ -5,12 +5,12 @@ import RealmSwift
 
 class SavedArticle: Object {
     //MARK: - Properties
-    @objc var title: String? = nil
-    @objc  var desc: String? = nil
-    @objc  var urlImage: String? = nil
-    @objc  var url: String? = nil
-    @objc  var publishedAt: String? = nil
-    @objc var isBookmarked = false
+    @objc dynamic var title: String? = nil
+    @objc dynamic var desc: String? = nil
+    @objc  dynamic var urlImage: String? = nil
+    @objc  dynamic var url: String? = nil
+    @objc dynamic var publishedAt: String? = nil
+    @objc dynamic var isBookmarked = false
     
     //MARK: - init
     override static func primaryKey() -> String? {
@@ -19,8 +19,8 @@ class SavedArticle: Object {
 }
 
 class User: Object {
-    @objc var isLoggedIn: Bool = false
-    @objc var email: String? = nil
+    @objc dynamic var isLoggedIn = false
+    @objc dynamic var email: String? = nil
     
     //MARK: - init
     override static func primaryKey() -> String? {
@@ -31,6 +31,13 @@ class User: Object {
 
 //MARK: -extensions
 extension SavedArticle {
+    func writeToRealm() {
+        try! uiRealm.write {
+            uiRealm.add(self, update: .modified)
+        }
+    }
+}
+extension User {
     func writeToRealm() {
         try! uiRealm.write {
             uiRealm.add(self, update: .modified)

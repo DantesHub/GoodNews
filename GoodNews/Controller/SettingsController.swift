@@ -23,7 +23,7 @@ class SettingsController: UIViewController {
         label.text = "Logged In!"
         label.textColor = .black
         label.textAlignment = .center
-        label.font = UIFont(name: "GillSans-Bold", size: 30)
+        label.font = UIFont(name: "GillSans-Bold", size: 40)
         return label
     }()
 
@@ -44,18 +44,23 @@ class SettingsController: UIViewController {
         //        UINavigationBar.appearance().shadowImage = UIImage()
         //        UINavigationBar.appearance().setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.isTranslucent = true;
-        navigationItem.leftBarButtonItem = nil
+        navigationController?.navigationBar.isHidden = true
+
         
         view.addSubview(loggedInLabel)
         view.addSubview(smileyImage)
         
-        loggedInLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 50).isActive = true
+        smileyImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+        smileyImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
+        smileyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        smileyImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -250).isActive = true
+
+        loggedInLabel.topAnchor.constraint(equalTo: smileyImage.bottomAnchor, constant: 50).isActive = true
+        loggedInLabel.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -50).isActive = true
         loggedInLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
         loggedInLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
         
-        smileyImage.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        smileyImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive = true
-        smileyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
+        
         
        
 

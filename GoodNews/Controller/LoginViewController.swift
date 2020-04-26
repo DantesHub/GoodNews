@@ -2,6 +2,7 @@ import UIKit
 import Firebase
 import RealmSwift
 var loggedOut = false
+var isLoggedIn = false
 class LoginViewController: UIViewController {
     var goToTimerView = UIView()
     var goToTimerLabel = UILabel()
@@ -116,7 +117,7 @@ class LoginViewController: UIViewController {
                 let settingsVC = SettingsController()
                 settingsVC.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(settingsVC, animated: true)
-                //                self.saveToRealm()
+                                self.saveToRealm()
             }
         }
     }
@@ -167,45 +168,14 @@ class LoginViewController: UIViewController {
                   return
                 }
             }
-//            createRealmData()
+            createRealmData()
         }
     
-    //    func createRealmData() {
-    //        //did not find result
-    //        //User logged into a new phone, so we have to recreate realm data
-    //        if let email = Auth.auth().currentUser?.email {
-    //            var gender = ""
-    //            var coins = -1
-    //            var name = ""
-    //            let docRef = db.collection(K.FStore.collectionName).document(email)
-    //            docRef.getDocument { (snapshot, error) in
-    //                if let document = snapshot, document.exists {
-    //                    let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-    //                    print("Document data: \(dataDescription)")
-    //                    if let g = document["gender"]  {
-    //                        gender = g as! String
-    //                        print("gender: \(gender)")
-    //                    }
-    //                    if let n = document["name"] {
-    //                        name = n as! String
-    //                        print("name: \(name)")
-    //                    }
-    //                    if let c = document["coins"] {
-    //                        coins = c  as! Int
-    //                        print("coins: \(c)")
-    //                    }
-    //                } else {
-    //                    print("Document does not exist")
-    //                }
-    //
-    //                realmUser.name = name
-    //                realmUser.email = Auth.auth().currentUser?.email
-    //                realmUser.isLoggedIn = true
-    //                realmUser.gender = gender
-    //                realmUser.coins = coins
-    //                realmUser.writeToRealm()
-    //            }
-    //        }
-    //    }
+ func createRealmData() {
+      let realmUser = User()
+      realmUser.email = Auth.auth().currentUser?.email
+      realmUser.isLoggedIn = true
+      realmUser.writeToRealm()
+  }
     
 }

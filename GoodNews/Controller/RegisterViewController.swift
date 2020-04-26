@@ -190,26 +190,10 @@ class RegisterViewController: UIViewController {
     }
     
      func saveToRealm() {
-                results = uiRealm.objects(User.self)
-                for result  in results {
-                    if result.email == Auth.auth().currentUser?.email {
-                        do {
-                            try uiRealm.write {
-                                print("saved")
-                                loggedOut = false
-                                result.setValue(true, forKey: "isLoggedIn")
-                            }
-        
-                        } catch {
-                            print(error)
-        
-                        }
-                      return
-                    }
-                }
-    //            createRealmData()
-            }
-    
-    
+            let realmUser = User()
+            realmUser.email = Auth.auth().currentUser?.email
+            realmUser.isLoggedIn = true
+            realmUser.writeToRealm()
+    }
 }
 
