@@ -7,7 +7,7 @@ protocol NewsManagerDelegate {
     func didUpdateArticles()
 }
  var query: String? = "e"
-   var count: String? = "10"
+   var count: String? = "100"
    var offset: String? = "0"
 struct NewsManager {
     let newsURL = "https://newsapi.org/v2/top-headlines?country=us&apiKey=9c92cd3bba5542e880b59aa89df77a2e"
@@ -57,6 +57,18 @@ struct NewsManager {
         dataTask.resume()
     }
     
+    func checkIfPositive(title: String, index: Int) -> Bool {
+        var pos = false
+        let sentimentAnalyzer = SentimentAnalyzer()
+        let prediction = try! sentimentAnalyzer.prediction(text: title)
+        if prediction.label == "Pos" {
+            pos = true
+        } else {
+            pos = false
+        }
+        return pos
+    }
+    
     func parseJson(_ articleData: Data, update: Bool = false) -> Array<ArticleLitModel>? {
          let decoder = JSONDecoder()
         do {
@@ -72,6 +84,11 @@ struct NewsManager {
                         let decodedData = try decoder.decode(ArticlesLitData.self, from: articleData).results
                         let urlImage = decodedData.stories[safe: i]?.image_url
                         let title = decodedData.stories[safe: i]?.title
+                        // add helper function, continue if not positive title
+                        if !checkIfPositive(title: title!, index: i) {
+                            continue
+                        }
+                        
                         let description = decodedData.stories[i].excerpt
                         let url = decodedData.stories[i].url
                         let source = decodedData.stories[i].source

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3C0F330B8C35BFD77B7E4AE0 /* Pods_GoodNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD426A8A923D794BEFF7F4E3 /* Pods_GoodNews.framework */; };
+		4212CD072455252D00390E4C /* SentimentAnalyzer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4212CD062455252D00390E4C /* SentimentAnalyzer.mlmodel */; };
 		FE6483052454977900E4E30A /* NewsLitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483042454977900E4E30A /* NewsLitData.swift */; };
 		FE6483072454992000E4E30A /* NewsLitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483062454992000E4E30A /* NewsLitModel.swift */; };
 		FE648309245521CC00E4E30A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE648308245521CC00E4E30A /* GoogleService-Info.plist */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4212CD062455252D00390E4C /* SentimentAnalyzer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentAnalyzer.mlmodel; sourceTree = "<group>"; };
 		91CB87F70744555AFF5D6CBC /* Pods-GoodNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodNews.debug.xcconfig"; path = "Target Support Files/Pods-GoodNews/Pods-GoodNews.debug.xcconfig"; sourceTree = "<group>"; };
 		BD426A8A923D794BEFF7F4E3 /* Pods_GoodNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFE3ABC4669BECA46880B58D /* Pods-GoodNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodNews.release.xcconfig"; path = "Target Support Files/Pods-GoodNews/Pods-GoodNews.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,6 +104,7 @@
 		FEB24F022448E6E00052E543 /* GoodNews */ = {
 			isa = PBXGroup;
 			children = (
+				4212CD062455252D00390E4C /* SentimentAnalyzer.mlmodel */,
 				FEB24F032448E6E00052E543 /* AppDelegate.swift */,
 				FEB24F052448E6E00052E543 /* SceneDelegate.swift */,
 				FEC28327244A1A3E00098413 /* Model */,
@@ -284,6 +287,7 @@
 				FEB24F062448E6E00052E543 /* SceneDelegate.swift in Sources */,
 				FEC28320244932A100098413 /* NewsCell.swift in Sources */,
 				FEAB33EB24535A9E00F1FCAC /* MenuBar.swift in Sources */,
+				4212CD072455252D00390E4C /* SentimentAnalyzer.mlmodel in Sources */,
 				FEB24F242448F35E0052E543 /* bookmarkController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
