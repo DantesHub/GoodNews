@@ -69,7 +69,7 @@ class MenuCell: UICollectionViewCell {
         case "Top":
             print("Top")
             clicked = true
-            query = "a"
+            query = "the+united+gov+love+good+change"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "Sports":
             print("Sports")
