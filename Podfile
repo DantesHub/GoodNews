@@ -9,6 +9,6 @@ target 'GoodNews' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'RealmSwift'
-  pod 'lottie-ios'
-  pod 'Firebase/Database'	
+  pod 'Firebase/Database'
+  pod 'Validator', '~> 3.2'	
 end

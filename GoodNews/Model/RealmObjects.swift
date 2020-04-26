@@ -18,6 +18,16 @@ class SavedArticle: Object {
     }
 }
 
+class User: Object {
+    @objc var isLoggedIn: Bool = false
+    @objc var email: String? = nil
+    
+    //MARK: - init
+    override static func primaryKey() -> String? {
+        return "email"
+    }
+}
+
 
 //MARK: -extensions
 extension SavedArticle {

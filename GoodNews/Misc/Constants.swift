@@ -15,6 +15,9 @@ let neoWhite = hexStringToUIColor(hex: "#F1F3F6")
 let superLightLavender = hexStringToUIColor(hex: "#E3DAFA")
 let darkRed = hexStringToUIColor(hex: "#811301")
 let darkPurple = hexStringToUIColor(hex:"#5E558A")
+let goldYellow = hexStringToUIColor(hex: "#F4D104")
+let twitterBlue = hexStringToUIColor(hex: "#379DED")
+let bookmarkRed = hexStringToUIColor(hex: "#ED7B94")
 
 struct K {
     static let newsCell = "NewsCell"

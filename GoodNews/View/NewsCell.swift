@@ -1,7 +1,6 @@
 
 import UIKit
 import RealmSwift
-import Lottie
 class NewsCell: UITableViewCell {
     //MARK: - properties
     var results: Results<SavedArticle>!

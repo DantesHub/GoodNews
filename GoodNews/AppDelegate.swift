@@ -2,6 +2,7 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 var uiRealm = try! Realm()
 @UIApplicationMain
@@ -9,6 +10,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print(Realm.Configuration.defaultConfiguration.fileURL)
+        FirebaseApp.configure()
         return true
     }
 
