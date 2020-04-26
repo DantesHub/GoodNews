@@ -29,8 +29,12 @@ class MainTabBarController: UITabBarController {
         let userController = UINavigationController(rootViewController: UserProfileController())
         userController.tabBarItem.image = UIImage(named: "accountIcon")
         userController.tabBarItem.selectedImage = UIImage(named: "accountIconSelected")
+        
+        let twitterController = UINavigationController(rootViewController: TwitterController())
+        twitterController.tabBarItem.image = UIImage(named: "twitterIcon")
+        twitterController.tabBarItem.selectedImage = UIImage(named: "twitterIconSelected")
 
-        viewControllers = [savedController, homeController ,userController]
+        viewControllers = [savedController, homeController , twitterController, userController]
         
         guard let items = tabBar.items else { return }
         for item in items {

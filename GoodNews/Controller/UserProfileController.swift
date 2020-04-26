@@ -33,7 +33,7 @@ class UserProfileController: UIViewController {
         titleLabel1.frame.size.width = 300
         titleLabel1.frame.size.height = 100
         titleLabel1.center.x = view.center.x
-        titleLabel1.center.y = view.center.y - 200
+        titleLabel1.center.y = view.center.y - 400
         titleLabel1.text = "TIMER"
         titleLabel1.font = UIFont(name: "Menlo", size: 55)
         titleLabel1.textColor = brightPurple
@@ -41,7 +41,7 @@ class UserProfileController: UIViewController {
         titleLabel2.frame.size.width = 300
         titleLabel2.frame.size.height = 100
         titleLabel2.center.x = view.center.x + 185
-        titleLabel2.center.y = view.center.y - 200
+        titleLabel2.center.y = view.center.y - 400
         titleLabel2.text = "APP"
         titleLabel2.font = UIFont(name: "Menlo", size: 55)
         titleLabel2.textColor = .black

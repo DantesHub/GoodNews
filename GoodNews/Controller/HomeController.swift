@@ -96,14 +96,13 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             spinner.startAnimating()
             tableView.tableFooterView = spinner
             self.tableView.reloadData()
-            offset = String(Int(offset!)! + 10)
+            offset = String(Int(offset!)! + 60)
             allNews.fetchArticles(update: true)
         }
         cell.configureBookmark()
         return cell
     }
 }
-
 
 
 extension HomeController: NewsManagerDelegate  {
