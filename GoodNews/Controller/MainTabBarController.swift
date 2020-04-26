@@ -30,7 +30,7 @@ class MainTabBarController: UITabBarController {
         userController.tabBarItem.image = UIImage(named: "accountIcon")
         userController.tabBarItem.selectedImage = UIImage(named: "accountIconSelected")
         
-        let twitterController = UINavigationController(rootViewController: TwitterController())
+        let twitterController = TwitterController(collectionViewLayout: UICollectionViewFlowLayout())
         twitterController.tabBarItem.image = UIImage(named: "twitterIcon")
         twitterController.tabBarItem.selectedImage = UIImage(named: "twitterIconSelected")
 
