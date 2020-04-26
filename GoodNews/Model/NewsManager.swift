@@ -6,7 +6,7 @@ var articleCount = 10
 protocol NewsManagerDelegate {
     func didUpdateArticles()
 }
- var query: String? = "e"
+ var query: String? = "the+united+gov+love+good+change"
    var count: String? = "100"
    var offset: String? = "0"
 struct NewsManager {
@@ -94,7 +94,9 @@ struct NewsManager {
                         let source = decodedData.stories[i].source
                         let date = decodedData.stories[i].publication_date
                         let article = ArticleLitModel(title: title, description: description, urlImage: urlImage, url: url, publishedAt: date, source: source)
-                        articlesInside.append(article)
+                        if !articlesInside.contains(article) {
+                            articlesInside.append(article)
+                        }
                 }
             }
             articles = articlesInside

@@ -51,6 +51,13 @@ class NewsCell: UITableViewCell {
         containerView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
         containerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20).isActive = true
         containerView.heightAnchor.constraint(equalToConstant: 430).isActive                   = true
+        containerView.isUserInteractionEnabled = true
+        let tap = UIGestureRecognizer(target: self, action: #selector(tappedBox))
+        containerView.addGestureRecognizer(tap)
+    }
+    
+    @objc func tappedBox() {
+  
     }
     
     
@@ -75,6 +82,9 @@ class NewsCell: UITableViewCell {
         articleTitleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -12).isActive  = true
         articleTitleLabel.topAnchor.constraint(equalTo: articleImageView.bottomAnchor, constant: -20).isActive      = true
         articleTitleLabel.heightAnchor.constraint(equalToConstant: 150).isActive                                    = true
+        articleTitleLabel.isUserInteractionEnabled = true
+        let tap = UIGestureRecognizer(target: self, action: #selector(tappedBox))
+        articleTitleLabel.addGestureRecognizer(tap)
     }
     func configureBookmark() {
         results = uiRealm.objects(SavedArticle.self)

@@ -10,6 +10,7 @@ class HomeController: UIViewController {
     var loadingData = true
     var tableView = UITableView()
     let cellSpacingHeight: CGFloat = 60
+    var article: ArticleLitModel?
     let spinner = UIActivityIndicatorView(style: .gray)
     var allNews = NewsManager()
     let menuBar: MenuBar = {
@@ -81,12 +82,20 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
            headerView.backgroundColor = UIColor.clear
            return headerView
        }
-
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+             print("tappedbox")
+         article = articles[indexPath.section]
+          if let url = URL(string: article!.url!) {
+              UIApplication.shared.open(url)
+          } else {
+              return
+          }
+    }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = NewsCell(style: .default, reuseIdentifier: K.newsCell)
-        let article = articles[indexPath.section]
-        cell.set(article: article)
+        article = articles[indexPath.section]
+        cell.set(article: article!)
         cell.selectionStyle = .none
         if indexPath.section == articles.count - 1 && !loadingData {
             loadingData = true
@@ -96,13 +105,15 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
             spinner.startAnimating()
             tableView.tableFooterView = spinner
             self.tableView.reloadData()
-            offset = String(Int(offset!)! + 60)
+            offset = String(Int(offset!)! + 100)
             allNews.fetchArticles(update: true)
         }
         cell.configureBookmark()
         return cell
     }
+
 }
+
 
 
 extension HomeController: NewsManagerDelegate  {

@@ -29,6 +29,7 @@
 		FEB24F222448F2060052E543 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB24F212448F2060052E543 /* Constants.swift */; };
 		FEB24F242448F35E0052E543 /* bookmarkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB24F232448F35E0052E543 /* bookmarkController.swift */; };
 		FEB24F262449039C0052E543 /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB24F252449039C0052E543 /* UserProfileController.swift */; };
+		FEB3E3122455EA2200079DB9 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB3E3112455EA2200079DB9 /* WebViewController.swift */; };
 		FEC28320244932A100098413 /* NewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC2831F244932A100098413 /* NewsCell.swift */; };
 		FEC2832B244A1A6300098413 /* NewsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEC2832A244A1A6300098413 /* NewsManager.swift */; };
 		FEEA8610244D164A00E9A870 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEA860F244D164A00E9A870 /* Extensions.swift */; };
@@ -62,6 +63,7 @@
 		FEB24F212448F2060052E543 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		FEB24F232448F35E0052E543 /* bookmarkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bookmarkController.swift; sourceTree = "<group>"; };
 		FEB24F252449039C0052E543 /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		FEB3E3112455EA2200079DB9 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		FEC2831F244932A100098413 /* NewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsCell.swift; sourceTree = "<group>"; };
 		FEC2832A244A1A6300098413 /* NewsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsManager.swift; sourceTree = "<group>"; };
 		FEEA860F244D164A00E9A870 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				FE64830C2455358C00E4E30A /* RegisterViewController.swift */,
 				FE64830E2455359F00E4E30A /* LoginViewController.swift */,
 				FE64831024553FB000E4E30A /* SettingsController.swift */,
+				FEB3E3112455EA2200079DB9 /* WebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -309,6 +312,7 @@
 				FEEA8610244D164A00E9A870 /* Extensions.swift in Sources */,
 				FE64830B245528C200E4E30A /* TwitterController.swift in Sources */,
 				FEB24F262449039C0052E543 /* UserProfileController.swift in Sources */,
+				FEB3E3122455EA2200079DB9 /* WebViewController.swift in Sources */,
 				FEB24F062448E6E00052E543 /* SceneDelegate.swift in Sources */,
 				429FFD6A2455DA23001182C8 /* TweetCell.swift in Sources */,
 				FEC28320244932A100098413 /* NewsCell.swift in Sources */,

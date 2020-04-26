@@ -13,7 +13,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
         cv.delegate = self
         return cv
     }()
-    var categoryNames: [String] = ["Top", "Media", "Sports", "Tech", "World", "Gov"]
+    var categoryNames: [String] = ["Top", "Media", "Sports", "Tech", "World"]
     let cellId = "cellId"
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +35,7 @@ class MenuBar: UIView, UICollectionViewDataSource, UICollectionViewDelegate, UIC
     }
     //US, World, Media, sports, technology, politics
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 6
+        return 5
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -74,7 +74,7 @@ class MenuCell: UICollectionViewCell {
         case "Sports":
             print("Sports")
             clicked = true
-            query = "nba+mlb+nhl+nfl+football+baseball+basketball+sports"
+            query = "sports+nba+mlb+nhl+nfl+football+baseball+basketball"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "Media":
             print("Media")
@@ -84,18 +84,14 @@ class MenuCell: UICollectionViewCell {
         case "Tech":
             print("Tech")
             clicked = true
-            query = "technology+iphone+samsung+tesla+tech+computer+laptop"
+            query = "tech+iphone+samsung+tesla+tech+computer+laptop"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "World":
             print("World")
             clicked = true
             query = "world+government+UK+japan+korea+china+africa+russia+canada+mexico+australia"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
-        case "U.S":
-            print("Gov")
-            clicked = true
-            query = "https://newslit-news-search.p.rapidapi.com/news?q=united%22states+america+government"
-            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
+
         default:
             print("Default")
         }

@@ -2,24 +2,46 @@
 
 import UIKit
 import RealmSwift
+import Firebase
 
 class BookmarkController: UIViewController {
     //MARK: - Properties
     var tableView = UITableView()
+    var userResults: Results<User>!
     var results: Results<SavedArticle>!
     var articlez: Array<ArticleLitModel> = [ArticleLitModel]()
-    let cellSpacingHeight: CGFloat = 60
+    let db = Firestore.firestore()
+    let cellSpacingHeight: CGFloat = 50
     var newsCell = NewsCell()
     //MARK: - INIT
     override func viewDidLoad() {
         super.viewDidLoad()
         onHome = false
-        configureUI()
-        configureNavBar()
         NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
     }
     override func viewWillAppear(_ animated: Bool) {
          loadArticles()
+         userResults = uiRealm.objects(User.self)
+          for result in userResults {
+              if result.isLoggedIn == true {
+                configureUI()
+                configureNavBar()
+                return
+              }
+          }
+        configureNavBar()
+        view.backgroundColor = .lightGray
+        let middleLabel = UILabel()
+        middleLabel.translatesAutoresizingMaskIntoConstraints = false
+        middleLabel.numberOfLines = 2
+        middleLabel.text = "Must be logged in \nto save articles!"
+        middleLabel.textColor = .white
+        middleLabel.font = UIFont(name: "Menlo-Bold", size: 30)
+        view.addSubview(middleLabel)
+        middleLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        middleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+
+         
     }
     @objc func loadList(notification: NSNotification){
         //load data here
@@ -33,13 +55,12 @@ class BookmarkController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.title = "Saved"
         navigationItem.scrollEdgeAppearance = navigationController?.navigationBar.standardAppearance
-        
-        
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
         self.configureTableView(tableView: self.tableView)
     }
+    
     
     func loadArticles() {
         results = uiRealm.objects(SavedArticle.self)
@@ -82,7 +103,7 @@ extension BookmarkController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.newsCell) as! NewsCell
+        let cell = NewsCell(style: .default, reuseIdentifier: K.newsCell)
         let article = articlez[indexPath.section]
         cell.set(article: article)
         cell.selectionStyle = .none
