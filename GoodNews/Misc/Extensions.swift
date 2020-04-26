@@ -102,5 +102,14 @@ extension UIView {
            bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
            trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
     }
+    
+    func applyDesign(color: UIColor) {
+          self.backgroundColor = color
+          self.layer.cornerRadius = 25
+          self.layer.shadowColor = UIColor.black.cgColor
+          self.layer.shadowOpacity = 0.5;
+          self.layer.shadowRadius = 12
+          self.layer.shadowOffset = CGSize(width: 10, height: 10)
+      }
 }
 

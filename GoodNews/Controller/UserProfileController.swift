@@ -59,15 +59,15 @@ class UserProfileController: UIViewController {
         registerView.applyDesign(color: lightLavender)
         registerView.center.x = view.center.x
         registerView.center.y = view.center.y + 250
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedRegister))
-        registerView.addGestureRecognizer(tap)
+//        let tap = UITapGestureRecognizer(target: self, action: #selector(tappedRegister))
+//        registerView.addGestureRecognizer(tap)
         
         loginView =  UIView(frame: CGRect(x: 100, y: 400, width: 350, height: 80))
         loginView.applyDesign(color: brightPurple)
         loginView.center.x = view.center.x
         loginView.center.y = view.center.y + 140
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(tappedLogin))
-        loginView.addGestureRecognizer(tap2)
+//        let tap2 = UITapGestureRecognizer(target: self, action: #selector(tappedLogin))
+//        loginView.addGestureRecognizer(tap2)
         
         registerLabel.applyDesign(text: "Register")
         registerLabel.sizeToFit()
@@ -92,15 +92,15 @@ class UserProfileController: UIViewController {
     
     
     //MARK: - Handlers
-    @objc func tappedLogin() {
-        let loginVC = LoginViewController()
-        self.navigationController?.pushViewController(loginVC, animated: true)
-    }
-    
-    @objc func tappedRegister() {
-        let registerVC = RegisterViewController()
-        self.navigationController?.pushViewController(registerVC, animated: true)
-    }
+//    @objc func tappedLogin() {
+//        let loginVC = LoginViewController()
+//        self.navigationController?.pushViewController(loginVC, animated: true)
+//    }
+//
+//    @objc func tappedRegister() {
+//        let registerVC = RegisterViewController()
+//        self.navigationController?.pushViewController(registerVC, animated: true)
+//    }
 }
 
-}
+
