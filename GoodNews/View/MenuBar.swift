@@ -77,14 +77,13 @@ class MenuCell: UICollectionViewCell {
             query = "sports+nba+mlb+nhl+nfl+football+baseball+basketball"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "Media":
-            print("Media")
-            query = "media+celebrities+movies"
+            query = "celebrities+movies"
             clicked = true
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "Tech":
             print("Tech")
             clicked = true
-            query = "tech+iphone+samsung+tesla+tech+computer+laptop"
+            query = "technology+iphone+samsung+tesla+tech+computer+laptop"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "World":
             print("World")
