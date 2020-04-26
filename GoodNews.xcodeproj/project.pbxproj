@@ -10,6 +10,7 @@
 		3C0F330B8C35BFD77B7E4AE0 /* Pods_GoodNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD426A8A923D794BEFF7F4E3 /* Pods_GoodNews.framework */; };
 		FE6483052454977900E4E30A /* NewsLitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483042454977900E4E30A /* NewsLitData.swift */; };
 		FE6483072454992000E4E30A /* NewsLitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483062454992000E4E30A /* NewsLitModel.swift */; };
+		FE648309245521CC00E4E30A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FE648308245521CC00E4E30A /* GoogleService-Info.plist */; };
 		FEAB33EB24535A9E00F1FCAC /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEAB33EA24535A9E00F1FCAC /* MenuBar.swift */; };
 		FEB24F042448E6E00052E543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB24F032448E6E00052E543 /* AppDelegate.swift */; };
 		FEB24F062448E6E00052E543 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEB24F052448E6E00052E543 /* SceneDelegate.swift */; };
@@ -32,6 +33,7 @@
 		DFE3ABC4669BECA46880B58D /* Pods-GoodNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodNews.release.xcconfig"; path = "Target Support Files/Pods-GoodNews/Pods-GoodNews.release.xcconfig"; sourceTree = "<group>"; };
 		FE6483042454977900E4E30A /* NewsLitData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLitData.swift; sourceTree = "<group>"; };
 		FE6483062454992000E4E30A /* NewsLitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLitModel.swift; sourceTree = "<group>"; };
+		FE648308245521CC00E4E30A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FEAB33EA24535A9E00F1FCAC /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		FEB24F002448E6E00052E543 /* GoodNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GoodNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEB24F032448E6E00052E543 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				FEB24F0C2448E6E20052E543 /* Assets.xcassets */,
 				FEB24F0E2448E6E20052E543 /* LaunchScreen.storyboard */,
 				FEB24F112448E6E20052E543 /* Info.plist */,
+				FE648308245521CC00E4E30A /* GoogleService-Info.plist */,
 			);
 			path = GoodNews;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEB24F102448E6E20052E543 /* LaunchScreen.storyboard in Resources */,
+				FE648309245521CC00E4E30A /* GoogleService-Info.plist in Resources */,
 				FEB24F0D2448E6E20052E543 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

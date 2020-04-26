@@ -88,18 +88,17 @@ extension HomeController: UITableViewDelegate, UITableViewDataSource {
         let article = articles[indexPath.section]
         cell.set(article: article)
         cell.selectionStyle = .none
-    
-//        if indexPath.section == articles.count - 1 && !loadingData {
-//            loadingData = true
-//            let spinner = UIActivityIndicatorView(style: .gray)
-//            spinner.startAnimating()
-//            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(40), width: tableView.bounds.width, height: CGFloat(104))
-//            spinner.startAnimating()
-//            tableView.tableFooterView = spinner
-//            self.tableView.reloadData()
-//            offset = String(Int(offset!)! + 10)
-//            allNews.fetchArticles(update: true)
-//        }
+        if indexPath.section == articles.count - 1 && !loadingData {
+            loadingData = true
+            let spinner = UIActivityIndicatorView(style: .gray)
+            spinner.startAnimating()
+            spinner.frame = CGRect(x: CGFloat(0), y: CGFloat(40), width: tableView.bounds.width, height: CGFloat(104))
+            spinner.startAnimating()
+            tableView.tableFooterView = spinner
+            self.tableView.reloadData()
+            offset = String(Int(offset!)! + 10)
+            allNews.fetchArticles(update: true)
+        }
         cell.configureBookmark()
         return cell
     }

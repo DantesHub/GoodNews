@@ -27,6 +27,46 @@ extension UIViewController {
     }
 }
 
+extension UILabel {
+    func applyDesign() {
+        self.setLineSpacing(lineSpacing: 4, lineHeightMultiple: 1)
+        self.numberOfLines = 2
+        self.font = UIFont(name: "Menlo-Bold", size: 40)
+        self.translatesAutoresizingMaskIntoConstraints = false
+    }
+    func applyDesign(text: String) {
+        self.font = UIFont(name: "Menlo", size: 25)
+        self.text = text
+        self.textAlignment = .center
+        self.textColor = .white
+    }
+    
+    func setLineSpacing(lineSpacing: CGFloat = 0.0, lineHeightMultiple: CGFloat = 0.0) {
+        
+        guard let labelText = self.text else { return }
+        
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = lineSpacing
+        paragraphStyle.lineHeightMultiple = lineHeightMultiple
+        
+        let attributedString:NSMutableAttributedString
+        if let labelattributedText = self.attributedText {
+            attributedString = NSMutableAttributedString(attributedString: labelattributedText)
+        } else {
+            attributedString = NSMutableAttributedString(string: labelText)
+        }
+        
+        // (Swift 4.2 and above) Line spacing attribute
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        
+        
+        // (Swift 4.1 and 4.0) Line spacing attribute
+        attributedString.addAttribute(NSAttributedString.Key.paragraphStyle, value:paragraphStyle, range:NSMakeRange(0, attributedString.length))
+        
+        self.attributedText = attributedString
+    }
+}
+
 extension UIViewController {
     func configureTableView(tableView: UITableView) {
          //set row height

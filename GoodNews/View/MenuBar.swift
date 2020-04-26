@@ -68,6 +68,7 @@ class MenuCell: UICollectionViewCell {
         switch label.text {
         case "Top":
             print("Top")
+            clicked = true
             query = "a"
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)
         case "Sports":

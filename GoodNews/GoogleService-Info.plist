@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>563969364321-jvcqrc9us1d0dgt69llf5rso7qqc4ch0.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.563969364321-jvcqrc9us1d0dgt69llf5rso7qqc4ch0</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6t9Ah5bwI40eywSPkwlhikqKEpfA4DJY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>563969364321</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>co.dreamcheck.goodnews.GoodNews</string>
+	<key>PROJECT_ID</key>
+	<string>goodnews-92f20</string>
+	<key>STORAGE_BUCKET</key>
+	<string>goodnews-92f20.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:563969364321:ios:8a0faf4f37afe9498ff520</string>
+	<key>DATABASE_URL</key>
+	<string>https://goodnews-92f20.firebaseio.com</string>
+</dict>
+</plist>

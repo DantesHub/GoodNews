@@ -10,4 +10,5 @@ target 'GoodNews' do
   pod 'Firebase/Firestore'
   pod 'RealmSwift'
   pod 'lottie-ios'
+  pod 'Firebase/Database'	
 end
