@@ -30,11 +30,15 @@ class MainTabBarController: UITabBarController {
         userController.tabBarItem.image = UIImage(named: "accountIcon")
         userController.tabBarItem.selectedImage = UIImage(named: "accountIconSelected")
         
+        // PUSH THIS
         let twitterController = TwitterController(collectionViewLayout: UICollectionViewFlowLayout())
-        twitterController.tabBarItem.image = UIImage(named: "twitterIcon")
-        twitterController.tabBarItem.selectedImage = UIImage(named: "twitterIconSelected")
+        let navTwitter = UINavigationController(rootViewController: twitterController)
+        navTwitter.tabBarItem.image = UIImage(named: "twitterIcon")
+        navTwitter.tabBarItem.selectedImage = UIImage(named: "twitterIconSelected")
 
-        viewControllers = [savedController, homeController , twitterController, userController]
+        viewControllers = [savedController, homeController , navTwitter, userController]
+        // CHANGED
+
         
         guard let items = tabBar.items else { return }
         for item in items {
