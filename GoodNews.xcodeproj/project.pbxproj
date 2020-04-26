@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4212CD072455252D00390E4C /* SentimentAnalyzer.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 4212CD062455252D00390E4C /* SentimentAnalyzer.mlmodel */; };
 		429FFD6A2455DA23001182C8 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 429FFD692455DA23001182C8 /* TweetCell.swift */; };
+		42B7B4852455EF890072E2B6 /* Tweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B7B4842455EF890072E2B6 /* Tweet.swift */; };
 		43C99B516A70EEF3F308B7C6 /* Pods_GoodNews.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF23313724C3F11F781DD2C1 /* Pods_GoodNews.framework */; };
 		FE6483052454977900E4E30A /* NewsLitData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483042454977900E4E30A /* NewsLitData.swift */; };
 		FE6483072454992000E4E30A /* NewsLitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE6483062454992000E4E30A /* NewsLitModel.swift */; };
@@ -39,6 +40,7 @@
 /* Begin PBXFileReference section */
 		4212CD062455252D00390E4C /* SentimentAnalyzer.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = SentimentAnalyzer.mlmodel; sourceTree = "<group>"; };
 		429FFD692455DA23001182C8 /* TweetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		42B7B4842455EF890072E2B6 /* Tweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tweet.swift; sourceTree = "<group>"; };
 		9C28004187A8187F38583D87 /* Pods-GoodNews.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodNews.release.xcconfig"; path = "Target Support Files/Pods-GoodNews/Pods-GoodNews.release.xcconfig"; sourceTree = "<group>"; };
 		CF23313724C3F11F781DD2C1 /* Pods_GoodNews.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GoodNews.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1C43CF2915876F4DF38AC74 /* Pods-GoodNews.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GoodNews.debug.xcconfig"; path = "Target Support Files/Pods-GoodNews/Pods-GoodNews.debug.xcconfig"; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				FE6483062454992000E4E30A /* NewsLitModel.swift */,
 				FE6483122455C35800E4E30A /* ValidateInputs.swift */,
 				FE6483142455C43C00E4E30A /* ValidationError.swift */,
+				42B7B4842455EF890072E2B6 /* Tweet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				FE64830B245528C200E4E30A /* TwitterController.swift in Sources */,
 				FEB24F262449039C0052E543 /* UserProfileController.swift in Sources */,
 				FEB3E3122455EA2200079DB9 /* WebViewController.swift in Sources */,
+				42B7B4852455EF890072E2B6 /* Tweet.swift in Sources */,
 				FEB24F062448E6E00052E543 /* SceneDelegate.swift in Sources */,
 				429FFD6A2455DA23001182C8 /* TweetCell.swift in Sources */,
 				FEC28320244932A100098413 /* NewsCell.swift in Sources */,

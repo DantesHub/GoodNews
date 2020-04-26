@@ -10,6 +10,10 @@ import UIKit
 
 class TweetCell: UICollectionViewCell{
     
+    var tweet: Tweet? {
+        didSet { configure() }
+    }
+    
     // MARK: - Properties
     private let profileImageView: UIImageView = {
         let iv = UIImageView()
@@ -96,6 +100,13 @@ class TweetCell: UICollectionViewCell{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func configure() {
+        guard let tweet = tweet else { return }
+        captionLabel.text = tweet.caption
+        infoLabel.text = tweet.uid
+        profileImageView.image = UIImage(named: tweet.uid)
     }
 }
 
